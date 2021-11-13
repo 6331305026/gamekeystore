@@ -1,6 +1,7 @@
 <template>
     <section id="login">
-        <v-parallax dark src="@/assets/img/bgHero.jpg" height="750">
+
+        <!-- <v-parallax dark src="@/assets/img/bgHero.jpg" height="750">
         <v-row justify="center">
     <v-col
         cols="12"
@@ -101,10 +102,12 @@
             </v-card-actions>
         </v-card>
         </v-col>
-    </v-row>
+    </v-row> -->
     </section>
 </template>
 
 <style>
-
+section {
+    position: relative;
+}
 </style>

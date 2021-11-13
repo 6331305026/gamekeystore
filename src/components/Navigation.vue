@@ -15,7 +15,7 @@
             rounded
             @click="$vuetify.goTo('#home')"
             >
-              <img src="@/assets/img/logo.png" alt="Logo"/>
+              <img src="@/assets/img/logo-50.png" alt="Logo"/>
             </v-btn>
           </v-list-item-avatar>
           <v-list-item-content>
@@ -55,7 +55,15 @@
       :class="{ expand: flat }"
     >
       <v-toolbar-title>
-        <v-img src="@/assets/img/logo.png" max-width="50px" />
+        <v-btn
+            class="ml-4"
+            icon
+            rounded
+            @click="$vuetify.goTo('#home')"
+            >
+              <v-img src="@/assets/img/logo.png" max-width="50px" />
+            </v-btn>
+        
       </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon
@@ -64,45 +72,77 @@
         v-if="isXs"
       />
 
+      
+
+
       <div v-else>
         <v-btn rounded outlined text @click="$vuetify.goTo('#home')">
-          <span class="mr-2">Home</span>
+          <span class="mr-1">Home</span>
         </v-btn>
         <v-btn rounded outlined text @click="$vuetify.goTo('#about')">
-          <span class="mr-2">About us</span>
+          <span class="mr-1">About us</span>
         </v-btn>
         <v-btn rounded outlined text @click="$vuetify.goTo('#shop')">
-          <span class="mr-2">Shop</span>
+          <span class="mr-1">Shop</span>
         </v-btn>
         <v-btn rounded outlined text @click="$vuetify.goTo('#contact')">
-          <span class="mr-2">Contact us</span>
+          <span class="mr-1">Contact us</span>
         </v-btn>
+        
+        <!-- <div class="search">
+          <v-col
+            cols="12"
+            sm="6"
+            md="6"
+          >
+          <v-text-field
+            v-model="message2"
+            rounded
+            label="Search"
+            outlined
+            clearable
+            dense
+            prepend-inner-icon="mdi-magnify"
+          ></v-text-field>
+          </v-col>
+        </div> -->
+  <div class="text-center">
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Dropdown
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+        >
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  </div>
+        <v-avatar>
+          <img
+            src="@/assets/img/Profile.png"
+            alt="profile"
+          >
+        </v-avatar>
+      
       </div>
 
-      <div class="search">
-        <v-col
-          cols="12"
-          sm="6"
-          md="6"
-        >
-        <v-text-field
-          v-model="message2"
-          rounded
-          label="Search"
-          outlined
-          clearable
-          dense
-          prepend-inner-icon="mdi-magnify"
-        ></v-text-field>
-        </v-col>
-      </div>
 
-      <v-avatar>
-        <img
-          src="@/assets/img/Profile.png"
-          alt="profile"
-        >
-      </v-avatar>
+
+    
+
+
+
 
     </v-app-bar>
   </div>
@@ -126,10 +166,10 @@ export default {
     isXs: false,
     items: [
       ["mdi-home-outline", "Home", "#home"],
-      ["mdi-information-outline", "About us", "#features"],
-      ["mdi-store-outline", "Shop", "#download"],
+      ["mdi-information-outline", "About us", "#about"],
+      ["mdi-store-outline", "Shop", "#shop"],
       ["mdi-email-outline", "Contact", "#contact"],
-      ["mdi-sign-out-variant", "Log out", "#t"],
+      ["mdi-log-in-outline", "Log in", "#login"],
     ],
   }),
   props: {
@@ -156,4 +196,6 @@ export default {
     window.addEventListener("resize", this.onResize, { passive: true });
   },
 };
+
+
 </script>

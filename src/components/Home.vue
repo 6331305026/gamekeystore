@@ -20,8 +20,9 @@
                 outlined
                 large
                 dark
-                @click="$vuetify.goTo('#features')"
                 class="mt-5"
+                @click="$vuetify.goTo('#features')"
+                
               >
                 more
                 <v-icon class="ml-2">mdi-arrow-right</v-icon>
